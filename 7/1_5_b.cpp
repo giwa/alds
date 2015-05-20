@@ -9,8 +9,8 @@ int cnt;
 void merge(int A[], int n, int left, int mid, int right) {
     int n1 = mid - left;
     int n2 = right - mid;
-    for ( int i = 0; i < n1; i++ ) L[i] = A[left + 1];
-    for ( int i = 0; i < n2; i++ ) R[i] = A[mid + 1];
+    for ( int i = 0; i < n1; i++ ) L[i] = A[left + i];
+    for ( int i = 0; i < n2; i++ ) R[i] = A[mid + i];
     L[n1] = R[n2] = SENTNEL;
     int i = 0, j = 0;
     for (int k = left; k < right; k++){
@@ -40,4 +40,11 @@ int main() {
     for (i = 0; i < n; i++) cin >> A[i];
 
     mergeSort(A, n, 0, n);
+    for (i = 0 ; i < n; i++) {
+        if(i) cout << " ";
+        cout << A[i];
+    }
+    cout << endl;
+
+    return 0;
 }
